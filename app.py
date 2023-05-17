@@ -60,11 +60,5 @@ def render_sets():
         
        
 
-    #     return render_template("sets.html", 
-    #                            total_pages=int(count/int(results_per_page)),
-    #                            results_per_page=int(results_per_page),
-    #                            selected_page_num=int(page),
-    #                            params=request.args,
-    #                            result_count=count,
-    #                            result_sets=sets)
+    return render_template("kdrama.html")
     
