@@ -4,7 +4,7 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 
 conn = psycopg2.connect(
-    "host=db dbname=postgres user=postgres password=postgres",
+    "host=localhost dbname=lego user=postgres password=postgres",
     cursor_factory=RealDictCursor)
 app = Flask(__name__)
 
@@ -39,8 +39,8 @@ def render_sets():
     }
 
    
-    from_where_clause = """
-        
+    from_where_clause = f"""
+        from kdrama
     """
 
 
@@ -57,8 +57,13 @@ def render_sets():
     #     #count counter
     #     cur.execute(f"select count(*) as count {from_where_clause_count}", params)
     #     count = cur.fetchone()["count"]
-        
-       
+    
+    with conn.cursor() as cur:
+        cur.execute(f"""select *
+                        {from_where_clause} 
+                    """,
+                    params)
+        results = list(cur.fetchall())
 
     return render_template("kdrama.html")
     
