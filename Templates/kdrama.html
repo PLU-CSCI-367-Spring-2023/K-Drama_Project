@@ -74,6 +74,15 @@
     <button type="submit">I'm feeling spicy</button>
   </form>
   
+  
+  {% if result_count > 0 %}
+  <h1>{{result_count}} results</h1>
+              
+   
+  {% else %}
+  <h1>No results :(</h1>
+  {% endif %}
+
   <form>
     <table>
       <tr>
