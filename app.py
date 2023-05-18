@@ -4,7 +4,7 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 
 conn = psycopg2.connect(
-    "host=localhost dbname=lego user=postgres password=postgres",
+    "host=db dbname=postgres user=postgres password=postgres",
     cursor_factory=RealDictCursor)
 app = Flask(__name__)
 
