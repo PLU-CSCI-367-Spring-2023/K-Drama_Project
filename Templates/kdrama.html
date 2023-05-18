@@ -79,11 +79,23 @@
       <tr>
         <th>Name</th>
         <th>Year</th>
+        <th>Casts</th>
+        <th>Genre</th>
+        <th>Episode</th>
+        <th>Duration</th>
+        <th>Rating</th>
+        <th>Network</th>
       </tr>
         {% for drama in kdrama %}
             <tr>
                 <td>{{drama.name}}</td>
                 <td>{{drama.year}}</td>
+                <td>{{drama.casts}}</td>
+                <td>{{drama.genre}}</td>
+                <td>{{drama.episode}}</td>
+                <td>{{drama.duration}}</td>
+                <td>{{drama.rating}}</td>
+                <td>{{drama.network}}</td>
             </tr>
         {% endfor %}
     </table>
