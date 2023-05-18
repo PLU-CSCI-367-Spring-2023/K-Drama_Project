@@ -72,5 +72,19 @@
 
     <button type="submit">Search</button>
     <button type="submit">I'm feeling spicy</button>
-    
+  </form>
+  
+  <form>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Year</th>
+      </tr>
+        {% for drama in kdrama %}
+            <tr>
+                <td>{{drama.name}}</td>
+                <td>{{drama.year}}</td>
+            </tr>
+        {% endfor %}
+    </table>
   </form>

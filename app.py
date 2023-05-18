@@ -60,7 +60,7 @@ def render_sets():
     #     count = cur.fetchone()["count"]
     
     with conn.cursor() as cur:
-        cur.execute(f"""select *
+        cur.execute(f"""select name, year
                         {from_where_clause} 
                     """,
                     params)
