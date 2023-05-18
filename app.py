@@ -67,6 +67,7 @@ def render_sets():
         results = list(cur.fetchall())
 
     return render_template("kdrama.html", 
+                           kdrama=results,
                            params=request.args)
 
 
