@@ -1,11 +1,16 @@
-create table if not exists kdrama (
-    name varchar not null,
+create table kdrama(
+    name text not null,
     year int not null,
-    cast varchar not null,
-    genre varchar not null,
-    genre_rating int not null,
-    episode int not null,
-    duration int not null,
-    content_rating varchar not null,
-    network varchar not null
-)
+    aired_date text not null,
+    week text not null,
+    episode int not null, 
+    network text not null, 
+    duration text not null,
+    content text not null,
+    synopsis text not null,
+    casts text not null,
+    genre text not null,
+    tags text not null,
+    rank text not null,
+    rating text not null
+);

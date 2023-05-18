@@ -30,8 +30,9 @@
     <img src="https://media.tenor.com/JlKO3cvD5msAAAAd/aura-park-seo-joon.gif" alt="dude summoning light" class="enlighten">
     <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzkxYmE4YzhlNjk1ZjMwZGI0NTEzNTgxYmQxNTU2OWJmZDE3ZjcxZiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/QigPYGwlgy4l6o4476/giphy.gif" alt="shocked girl" class="surprised_girl">
     <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2FjODBmNjgxYzkzMTVhMTY1Njk4MmY4YmU3Yjg5ZTE3YTMxNTFjYyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/H4Qm1NYWEK7xNtJirl/giphy.gif" alt="Description of your image" class="green_guy">
-    <style>
-        table {
+    
+<style>
+    table {
 			border-collapse: collapse;
 			width: 100%;
 		}
@@ -41,14 +42,34 @@
 			background-color: hsla(19, 73%, 44%, 0.352);
 		}
 
-        form>label {
-            display: block;
-            margin: 5px 0;
-        }
+    form>label {
+        display: block;
+        margin: 5px 0;
+    }
 
-        form>label>span {
-            width: 90px;
-            display: inline-block;
-        }
-    </style>
+    form>label>span {
+        width: 90px;
+        display: inline-block;
+    }
+</style>
+
 </head>
+
+<body>
+  <form action="kdrama" method="get">
+    <span>Name:</span>
+      <input type="text" name=name value="{{params['name']}}">
+    <span>Year:</span>
+      <input type="text" name=year value="{{params['year']}}">
+    <span>Episode:</span>
+      <input type="text" name=year value="{{params['episode']}}">
+    <span>Duration:</span>
+      <input type="text" name=cast value="{{params['duration']}}">
+    <span>Content Rating:</span>
+      <input type="text" name=cast value="{{params['content_rating']}}">
+    <span>Network:</span>
+      <input type="text" name=cast value="{{params['network']}}">
+
+    <button type="submit">Search</button>
+    <button type="submit">I'm feeling spicy</button>
+  </form>

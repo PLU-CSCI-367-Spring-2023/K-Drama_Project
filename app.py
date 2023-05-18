@@ -60,5 +60,6 @@ def render_sets():
         
        
 
-    return render_template("kdrama.html")
+    return render_template("kdrama.html", 
+                           params=request.args)
     
