@@ -40,24 +40,24 @@ def render_sets():
     }
 
    
-    from_where_clause = f"""
-        from kdrama
+    from_where_clause = """
+        from kdrama k
+        where k.name ilike %(name)s
     """
 
 
-    # with conn.cursor() as cur:
-    #     #set_num
-    #     cur.execute(f"select s.set_num as set_num {from_where_clause}", params)
-    #     results_set_num = list(cur.fetchall())
+    with conn.cursor() as cur:
+        cur.execute(f"select k.name as name {from_where_clause}", params)
+        results = list(cur.fetchall())
         
     #     #listing all set_names and theme_names limit 100
     #     cur.execute(f"select s.name as set_name, t.name as theme_name, s.num_parts as part_count, s.set_num as set_num, s.year as year {from_where_clause}", params)
     #     sets = list(cur.fetchall())
   
        
-    #     #count counter
-    #     cur.execute(f"select count(*) as count {from_where_clause_count}", params)
-    #     count = cur.fetchone()["count"]
+        #count counter
+        cur.execute(f"select count(*) as count {from_where_clause}", params)
+        count = cur.fetchone()["count"]
     
     with conn.cursor() as cur:
         cur.execute(f"""select name, year, casts, genre, episode, duration, rating, network
@@ -68,7 +68,8 @@ def render_sets():
 
     return render_template("kdrama.html", 
                            kdrama=results,
-                           params=request.args)
+                           params=request.args,
+                           result_count = count)
 
 
 
