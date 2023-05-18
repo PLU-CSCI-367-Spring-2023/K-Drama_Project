@@ -18,23 +18,22 @@ def hello_world():
 def render_sets():
     name = request.args.get("name", "")
     year = request.args.get('year')
-    cast = request.args.get("cast", "")
+    casts = request.args.get("casts", "")
     genre = request.args.get("genre", "")
-    genre_rating = request.args.get('genre_rating')
     episode = request.args.get('episode')
     duration = request.args.get('duration')
-    content_rating = request.args.get('content_rating')
+    rating = request.args.get('content')
     network = request.args.get("network", "")
 
     params = {
         "name": f"%{name}%",
         "year": int(year) if year else None,
-        "cast": f"%{cast}%",
+        "casts": f"%{casts}%",
         "genre": f"%{genre}%",
-        "genre_rating": int(genre_rating) if genre_rating else None,
+        "rating": int(rating) if rating else None,
         "episode": int(episode) if episode else None,
         "duration": int(duration) if duration else None,
-        "content_rating": int(content_rating) if content_rating else None,
+        "rating": int(rating) if rating else None,
         "network": f"%{network}%"
     }
 
