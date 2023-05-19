@@ -13,8 +13,15 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
-    return "Hello, World!"
+def welcome():
+    return render_template("wecome.html")
+
+@app.route('/testpage')
+def testpage():
+    return render_template("testpage.html")
+
+
+
 
 #list of all names in the dataset. I know there is easier way using sql, but I had problems with RealDictRow
 list_of_names = ["Move to Heaven", "Hospital Playlist", "Flower of Evil", "Hospital Playlist 2", "My Mister", "Prison Playbook",
