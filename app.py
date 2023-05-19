@@ -6,19 +6,19 @@ from psycopg2.extras import RealDictCursor
 
 conn = psycopg2.connect(
     #just uncomment the proper host
-    #"host=db dbname=postgres user=postgres password=postgres", #//for docker users
-    "host=localhost dbname=final_project user=postgres password=postgres", #for Kirill
+    "host=db dbname=postgres user=postgres password=postgres", #for docker users
+    #"host=localhost dbname=final_project user=postgres password=postgres", #for Kirill
     cursor_factory=RealDictCursor)
 app = Flask(__name__)
 
 
 @app.route('/about')
-def welcome():
+def about():
     return render_template("about_us.html")
 
-@app.route('/testpage')
-def testpage():
-    return render_template("testpage.html")
+@app.route('/welcome')
+def welcome():
+    return render_template("welcome.html")
 
 
 
