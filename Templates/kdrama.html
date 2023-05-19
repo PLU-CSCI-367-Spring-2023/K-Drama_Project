@@ -85,8 +85,6 @@
   {% if result_count > 0 %}
   <h1>{{result_count}} results</h1>
               
-   
-  
 
   <form>
     <table>
@@ -115,6 +113,30 @@
     </table>
   </form>
   
+
+  <form action="synopsis" method="get">
+    <span>Looking for a specific synopsis</span>
+      <input type="text" name=name value="{{params['name']}}">
+  
+    <button type="submit">LOOOOK it UP!!!</button>
+
+
+    {% if params.name != "" %}
+      <table>
+        <tr>
+          <th>Synopsis</th>
+        </tr>
+          <tr>
+              <td>{{summary}}</td>
+          </tr>
+      </table>
+   {% endif %}
+  </form>
+
+
+  <form action="home" method="get">
+    <button type="submit">Home</button>
+  </form>
   {% else %}
   <h1>No results :(</h1>
   {% endif %}
