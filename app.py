@@ -111,6 +111,7 @@ def render_sets():
         index = random.randrange(0, 99)
         return list_of_names[index]
     
+    
     return render_template("kdrama.html",
                            kdrama=results,
                            params=request.args,
@@ -148,6 +149,12 @@ def render_sets2():
                     params)
         syn = list(cur.fetchall())
 
+        thingy = []
+        for k,v in syn[0].items():
+            if k == 'synopsis':
+                thingy.append(v)
+        clean_syn = thingy[0]
+
 
     with conn.cursor() as cur:
         cur.execute(f"select count(*) as count {syn_where_clause}", params)
@@ -157,5 +164,5 @@ def render_sets2():
     return render_template("kdrama.html",
                            params=request.args,
                            result_count = count,
-                           summary = syn)
+                           summary = clean_syn)
 
