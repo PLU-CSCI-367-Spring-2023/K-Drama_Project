@@ -71,7 +71,7 @@ def render_sets():
 
 @app.route("/synopsis")
 def render_sets2():
-    name = request.args.get("name", "")
+    name = "%"+request.args.get("name", "")+"%"
 
     params = {
         "name": f"%{name}%"
@@ -83,7 +83,7 @@ def render_sets2():
     """
 
     with conn.cursor() as cur:
-        cur.execute(f"""select synopsis
+        cur.execute(f"""select name, synopsis
                         {syn_where_clause} 
                     """,
                     params)
