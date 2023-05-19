@@ -49,7 +49,7 @@ def render_sets():
 
 
     with conn.cursor() as cur:
-        cur.execute(f"select k.name as name {from_where_clause}", params)
+        cur.execute(f"select name, year, casts, genre, episode, duration, rating, network {from_where_clause}", params)
         results = list(cur.fetchall())
         
     #     #listing all set_names and theme_names limit 100
@@ -61,12 +61,6 @@ def render_sets():
         cur.execute(f"select count(*) as count {from_where_clause}", params)
         count = cur.fetchone()["count"]
     
-    with conn.cursor() as cur:
-        cur.execute(f"""select name, year, casts, genre, episode, duration, rating, network
-                        {from_where_clause} 
-                    """,
-                    params)
-        results = list(cur.fetchall())
 
     return render_template("kdrama.html", 
                            kdrama=results,
