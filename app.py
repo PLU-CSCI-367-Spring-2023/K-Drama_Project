@@ -6,8 +6,8 @@ from psycopg2.extras import RealDictCursor
 
 conn = psycopg2.connect(
     #just uncomment the proper host
-    #"host=db dbname=postgres user=postgres password=postgres", #//for docker users
-    "host=localhost dbname=final_project user=postgres password=postgres", #for Kirill
+    "host=db dbname=postgres user=postgres password=postgres", #//for docker users
+    #"host=localhost dbname=final_project user=postgres password=postgres", #for Kirill
     cursor_factory=RealDictCursor)
 app = Flask(__name__)
 
