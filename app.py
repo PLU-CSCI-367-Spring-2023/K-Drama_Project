@@ -6,8 +6,8 @@ from psycopg2.extras import RealDictCursor
 
 conn = psycopg2.connect(
     #just uncomment the proper host
-    #"host=db dbname=postgres user=postgres password=postgres", #//for docker users
-    "host=localhost dbname=final_project user=postgres password=postgres", #for Kirill
+    "host=db dbname=postgres user=postgres password=postgres", #//for docker users
+    #"host=localhost dbname=final_project user=postgres password=postgres", #for Kirill
     cursor_factory=RealDictCursor)
 app = Flask(__name__)
 
@@ -59,6 +59,8 @@ def render_sets():
             and ( %(duration)s is null or duration = %(duration)s )
             and ( %(rating)s is null or rating = %(rating)s )
             and ( %(network)s is null or network ilike %(network)s )
+            and ( %(casts)s is null or casts ilike %(casts)s )
+            and ( %(genre)s is null or genre ilike %(genre)s )
         """
 
     params = {
@@ -99,13 +101,11 @@ def render_sets():
                         limit %(limit)s 
                     """,
                     params)
-        results = list(cur.fetchall())
+        results = list(cur.fetchall())  
 
         cur.execute(f"select count(*) as count {from_where_clause}", params)
         count = cur.fetchone()["count"]
-         
 
-    
 
     def need_some_spiciness():
         index = random.randrange(0, 99)
@@ -134,12 +134,20 @@ def render_sets2():
         where name ilike %(name)s
     """
 
+# with conn.cursor() as cur:
+#         cur.execute(f"""select name, synopsis
+#                         {syn_where_clause} 
+#                     """,
+#                     params)
+#         syn = list(cur.fetchall())
+
     with conn.cursor() as cur:
-        cur.execute(f"""select name, synopsis
+        cur.execute(f"""select synopsis
                         {syn_where_clause} 
                     """,
                     params)
         syn = list(cur.fetchall())
+
 
     with conn.cursor() as cur:
         cur.execute(f"select count(*) as count {syn_where_clause}", params)

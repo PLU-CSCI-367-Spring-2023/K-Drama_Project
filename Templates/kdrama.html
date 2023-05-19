@@ -41,12 +41,14 @@
   </style>
 
 
-<head>
+<head> 
+  <div style="text-align: center;">
     <title>The ULTIMATE K-Drama Watchlist</title>
     <img src="https://media.tenor.com/JlKO3cvD5msAAAAd/aura-park-seo-joon.gif" alt="dude summoning light" class="enlighten">
     <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzkxYmE4YzhlNjk1ZjMwZGI0NTEzNTgxYmQxNTU2OWJmZDE3ZjcxZiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/QigPYGwlgy4l6o4476/giphy.gif" alt="shocked girl" class="surprised_girl">
     <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2FjODBmNjgxYzkzMTVhMTY1Njk4MmY4YmU3Yjg5ZTE3YTMxNTFjYyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/H4Qm1NYWEK7xNtJirl/giphy.gif" alt="Description of your image" class="green_guy">
-    
+  </div>
+
 <style>
     table {
 			border-collapse: collapse;
@@ -78,12 +80,18 @@
 
 </head>
 
+
 <body>
+  <div style="text-align: center;">
   <form action="home" method="get">
     <span>Name:</span>
       <input type="text" name=name value="{{params['name']}}">
     <span>Year:</span>
       <input type="text" name=year value="{{params['year']}}">
+    <span>Cast:</span>
+      <input type="text" name=casts value="{{params['casts']}}">
+    <span>Genre:</span>
+      <input type="text" name=genre value="{{params['genre']}}">
     <span>Episode:</span>
       <input type="text" name=episode value="{{params['episode']}}">
     <span>Duration:</span>
@@ -95,16 +103,18 @@
 
     <button type="submit">Search</button>
   </form>
+  </div>
 
-
+  <div style="text-align: center;">
   <form action="home" method="get">
-    <h3>Feeling Spicy??? Need a Dab UP</h1>
-    <a href="/home?name={{spicy}}">Yee, Dab Me UP</a>
+    <h3>&#128293; Feeling Spicy? &#128293; Need a Dab UP! &#128293; </h1>
+    <a href="/home?name={{spicy}}">YEE</a>
   </form>
-  
+</div>
+
   
   {% if result_count > 0 %}
-  <h1>{{result_count}} results</h1>
+   <div style="text-align: center;"><h1>{{result_count}} results</h1></div>
               
 
   <center>
@@ -144,13 +154,13 @@
     </table>
   </form>
   
-
+  <div style="text-align: center;">
   <form action="synopsis" method="get">
     <span>Looking for a specific synopsis</span>
       <input type="text" name=name value="{{params['name']}}">
   
     <button type="submit">LOOOOK it UP!!!</button>
-
+  
 
     {% if params.name != "" %}
       <table>
@@ -163,15 +173,23 @@
       </table>
    {% endif %}
   </form>
+  </div>
 
 
+
+  
+
+  <div style="text-align: center;">
   <form action="home" method="get">
     <button type="submit">Home</button>
   </form>
+  </div>
+  
   {% else %}
+  <div style="text-align: center;">
   <h1>No results :(</h1>
   {% endif %}
-
+  </div>
 
   <center>
     <marquee behavior="alternate" direction="left">          
