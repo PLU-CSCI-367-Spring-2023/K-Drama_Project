@@ -75,3 +75,33 @@ def render_sets():
 
 
 
+@app.route("/synopsis")
+def render_sets2():
+    name = request.args.get("name", "")
+
+    params = {
+        "name": f"%{name}%"
+    }
+
+    syn_where_clause = """
+        from kdrama
+        where name ilike %(name)s
+    """
+
+    with conn.cursor() as cur:
+        cur.execute(f"""select synopsis
+                        {syn_where_clause} 
+                    """,
+                    params)
+        syn = list(cur.fetchall())
+
+    with conn.cursor() as cur:
+        cur.execute(f"select count(*) as count {syn_where_clause}", params)
+        count = cur.fetchone()["count"]
+    
+
+    return render_template("kdrama.html",
+                           params=request.args,
+                           result_count = count,
+                           summary = syn)
+

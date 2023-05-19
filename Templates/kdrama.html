@@ -56,7 +56,7 @@
 </head>
 
 <body>
-  <form action="kdrama" method="get">
+  <form action="home" method="get">
     <span>Name:</span>
       <input type="text" name=name value="{{params['name']}}">
     <span>Year:</span>
@@ -110,4 +110,28 @@
     </table>
   </form>
 
+
+  <form action="synopsis" method="get">
+    <span>Looking for a specific synopsis</span>
+      <input type="text" name=name value="{{params['name']}}">
+  
+    <button type="submit">LOOOOK it UP!!!</button>
+
+
+    {% if params.name != "" %}
+      <table>
+        <tr>
+          <th>Synopsis</th>
+        </tr>
+          <tr>
+              <td>{{summary}}</td>
+          </tr>
+      </table>
+   {% endif %}
+  </form>
+
+
+  <form action="home" method="get">
+    <button type="submit">Home</button>
+  </form>
  
