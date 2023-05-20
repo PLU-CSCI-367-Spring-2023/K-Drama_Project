@@ -6,15 +6,22 @@ from psycopg2.extras import RealDictCursor
 
 conn = psycopg2.connect(
     #just uncomment the proper host
-    "host=db dbname=postgres user=postgres password=postgres", #//for docker users
+    "host=db dbname=postgres user=postgres password=postgres", #for docker users
     #"host=localhost dbname=final_project user=postgres password=postgres", #for Kirill
     cursor_factory=RealDictCursor)
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello_world():
-    return "Hello, World!"
+@app.route('/about')
+def about():
+    return render_template("about_us.html")
+
+@app.route('/welcome')
+def welcome():
+    return render_template("welcome.html")
+
+
+
 
 #list of all names in the dataset. I know there is easier way using sql, but I had problems with RealDictRow
 list_of_names = ["Move to Heaven", "Hospital Playlist", "Flower of Evil", "Hospital Playlist 2", "My Mister", "Prison Playbook",
