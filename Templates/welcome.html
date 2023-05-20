@@ -3,10 +3,28 @@
 <head>
     <title>WELCOME</title>
     <style>
+        img {
+          width:500px;
+          transform: translateX(0px);
+          animation: float 6s ease-out infinite;
+        }
+        @keyframes float {
+          0%{
+            transform: translateY(0px);
+          }
+          50%{
+            transform: translateY(-60px);
+          }
+          100%{
+            transform: translateY(0px);
+          }
+        }
+
         h1 {
           color: blue;
           font-family: verdana;
           font-size: 800%;
+          margin-bottom: 100px;
         }
 
         h2 {
@@ -21,6 +39,7 @@
           color: red;
           font-family: courier;
           font-size: 160%;
+          margin-bottom: 40px;
         }
         .button-5 {
           align-items: center;
@@ -55,7 +74,7 @@
         .button-5:focus {
           background-color: #fb8332;
           box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-          animation: changeBackgroundColor 1s infinite;
+          animation: buttonColorChange 1s infinite;
         }
 
         .button-5:active {
@@ -64,7 +83,7 @@
           transform: translateY(0);
         }
 
-        @keyframes changeBackgroundColor {
+        @keyframes buttonColorChange {
           0% {
             background-color: #f20606;
           }
@@ -93,12 +112,15 @@
 
     </style>
 </head>
-<body style="background-color: #63E8B0">
+<body style="background-color: #ffffff">
     <div style="text-align: center;">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h2>Ready to get</h2>
-        <h1>Kimchi Slapped?</h1>
-        <p>You've come to the right place.</p>
+      <br><br><br><br><br><br><br><br><br>
+      <h2>Ready to get</h2>
+      <h1>Kimchi Slapped?</h1>
+      <p>You've come to the right place.</p>
+      <br>
+      <p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW7EGKEJwvpfWRcR1KEboDUe2Fr4Uj89a9Zg&usqp=CAU" alt="Kimchi"></p> 
+     
         <a href="http://127.0.0.1:5000/home">
             <button class="button-5" role="button">Enter Here</button>
         </a>
