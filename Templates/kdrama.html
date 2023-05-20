@@ -18,8 +18,8 @@
     margin-top: 20px;
   }
   .crying {
-    height: 300px;
-    width: 400;
+    height: 500px;
+    width: 600;
     margin-top: 20px;
   }
 
@@ -67,7 +67,7 @@
       margin-left: 3.0%;
 		}
 		td {
-      background-color: #8a492d54;
+      background-color: #984b2961;
 			padding: 10px;
 			border: 1px solid #000000;
 		}
@@ -76,7 +76,7 @@
     }
     
     table tbody tr:nth-child(odd) {
-      background-color: #ffffff;
+      background-color: #f9f2f2;
     }
 
     form>label {
@@ -140,8 +140,6 @@
   </center>
 
 
-
-
   <form>
     <table>
       <tr>
@@ -177,7 +175,7 @@
     <button type="submit">LOOOOK it UP!!!</button>
 
   <div class = "syn">
-    {% if params.name != "" %}
+    {% if summary %}
       <table>
         <tr>
           <th>Synopsis</th>
@@ -192,9 +190,6 @@
   </div>
 
 
-
-  
-
   <div style="text-align: center;">
   <form action="home" method="get">
     <button type="submit">Home</button>
@@ -204,7 +199,13 @@
   {% else %}
   <div style="text-align: center;">
   <h1>No results :(</h1>
+  <div style="text-align: center;">
+    <form action="home" method="get">
+      <button type="submit">Home</button>
+    </form>
+    </div>
   <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmRkZDEwZDJjMDk5MmUzZmNlYTNjZmZmMzE3OGI2Y2YyN2JjZjIyMCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/MfVscEVJM9SUBKtVKX/giphy.gif" alt="guy crying" class="crying">
+
 
   {% endif %}
   </div>
