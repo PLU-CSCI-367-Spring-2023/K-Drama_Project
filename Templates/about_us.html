@@ -9,6 +9,34 @@
         background-image: url('https://media.gqindia.com/wp-content/uploads/2020/12/Goblin-3.jpg');
         background-size: cover;
     }
+
+    .button1 {
+        cursor: grab;
+        font-size: 20px;
+        border: 2px solid black;
+        border-radius: 90%;
+        padding: 15px;
+
+    }
+    @keyframes glowing {
+        0% {
+          background-color: #39E6FA;
+          box-shadow: 0 0 5px #FCFC16;
+        }
+        50% {
+          background-color: #03D394;
+          box-shadow: 0 0 20px #49e819;
+        }
+        100% {
+          background-color: #39E6FA;
+          box-shadow: 0 0 5px #FCFC16;
+        }
+      }
+      .button {
+        animation: glowing 1300ms infinite;
+      }
+
+
 </style>
 
 <body>
@@ -56,12 +84,11 @@
 </h1>
 
 
-
-
-
-
-
-
+<div style="text-align: center;">
+    <form action="home" method="get" style="display: inline;">
+      <button class="button button1" type="submit">Home</button>
+    </form>
+</div>
 
 
 

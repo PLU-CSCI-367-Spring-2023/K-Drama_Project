@@ -16,7 +16,7 @@ app = Flask(__name__)
 def about():
     return render_template("about_us.html")
 
-@app.route('/welcome')
+@app.route('/')
 def welcome():
     return render_template("welcome.html")
 
