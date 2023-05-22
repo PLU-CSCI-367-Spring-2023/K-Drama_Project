@@ -1,9 +1,15 @@
 <html>
-
-<link rel="shortcut icon" type="image/png" href="https://img.uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/flames-icon.svg"/>
-   
+<link rel="shortcut icon" type="image/png" href="https://img.uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/flames-icon.svg"/>  
 <br>
 <body style="background-color:rgba(239, 210, 182, 0.772);">
+<style>
+  body {
+      background-image: linear-gradient(to top right, hwb(0 54% 16% / 0.831), hwb(25 81% 3%));
+      top: 10px;
+      position: relative;
+  }
+</style>
+  
 
 <style>
   .green_guy {
@@ -63,8 +69,28 @@
     <img src="https://media.tenor.com/JlKO3cvD5msAAAAd/aura-park-seo-joon.gif" alt="dude summoning light" class="enlighten">
     <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzkxYmE4YzhlNjk1ZjMwZGI0NTEzNTgxYmQxNTU2OWJmZDE3ZjcxZiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/QigPYGwlgy4l6o4476/giphy.gif" alt="shocked girl" class="surprised_girl">
     <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2FjODBmNjgxYzkzMTVhMTY1Njk4MmY4YmU3Yjg5ZTE3YTMxNTFjYyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/H4Qm1NYWEK7xNtJirl/giphy.gif" alt="Description of your image" class="green_guy">
-    
+  </div>
 <style>
+  
+    
+  h1{
+      font-size: 2rem;
+      font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      height: 8vh;
+      line-height: 8vh;
+      font-weight: 100;
+      color: #f8dbbd;
+
+      background-color: #cd614e8e;
+      text-shadow: 3px 3px 0 #eb452b,
+      5px 5px 0 #efa032,
+      6px 6px 0 #46b59b,
+      8px 8px 0 #c11a2b;
+      
+     
+    }
+    
+    
     table {
 			border-collapse: collapse;
 			width: 94%;
@@ -76,11 +102,11 @@
 			border: 1px solid #000000;
 		}
     table tbody tr {
-	    background-color: #eb77628e;
+	    background-color: #f39888e2;
     }
     
     table tbody tr:nth-child(odd) {
-      background-color: #f9f2f2;
+      background-color: #f2dbdb;
     }
 
     form>label {
@@ -98,6 +124,7 @@
 
 
 <body>
+
   <div style="text-align: center;">
   <form action="home" method="get">
     <span>Name:</span>
@@ -145,30 +172,30 @@
 
   <form>
     {% if not summary %}
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Year</th>
-          <th>Cast</th>
-          <th>Genre</th>
-          <th>Eps.</th>
-          <th>Dur.</th>
-          <th>Rating</th>
-          <th>Network</th>
-        </tr>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Cast</th>
+        <th>Genre</th>
+        <th>Eps.</th>
+        <th>Dur.</th>
+        <th>Rating</th>
+        <th>Network</th>
+      </tr>
         {% for drama in kdrama %}
-          <tr>
-            <td>{{drama.name}}</td>
-            <td>{{drama.year}}</td>
-            <td>{{drama.casts}}</td>
-            <td>{{drama.genre}}</td>
-            <td>{{drama.episode}}</td>
-            <td>{{drama.duration}}</td>
-            <td>{{drama.rating}}</td>
-            <td>{{drama.network}}</td>
-          </tr>
+            <tr>
+                <td>{{drama.name}}</td>
+                <td>{{drama.year}}</td>
+                <td>{{drama.casts}}</td>
+                <td>{{drama.genre}}</td>
+                <td>{{drama.episode}}</td>
+                <td>{{drama.duration}}</td>
+                <td>{{drama.rating}}</td>
+                <td>{{drama.network}}</td>
+            </tr>
         {% endfor %}
-      </table>
+    </table>
     {% endif %}
   </form>
   
