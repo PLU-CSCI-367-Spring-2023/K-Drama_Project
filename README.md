@@ -1,4 +1,12 @@
-# Postgres-backed Flask Server Template
+# Welcome to our K-drama Database! 
+
+The team ***Dab Me Up Homies*** consists of four Pacific Lutheran University students - Mary, Anyah, orangepulpsucks, and Kirill - who are all currently taking CSCI 367, a databases and web-programming course. This website is free for everyone and is meant to promote K-dramas to the public. The website consist of four routes: about us, welcome, home (main), and the synopsis.
+
+This website, as of May 2023, contains the ultimate watchlist of the best one-hundred K-dramas out there.
+
+Thank you very much for visiting! ❤
+
+## Postgres-backed Flask Server Template
 
 This is a template repository for setting up a basic Flask app backed by a Postgres database.
 
