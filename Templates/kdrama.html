@@ -1,15 +1,24 @@
 <html>
 <link rel="shortcut icon" type="image/png" href="https://img.uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/flames-icon.svg"/>  
-<br>
-<body style="background-color:rgba(239, 210, 182, 0.772);">
+
+
+
+<div id="dramak">
+    <canvas id="canvas"></canvas>
+<body style="background-color: rgba(250, 212, 212, 0.693)">
+
 <style>
+  .pattern_bg {
+    opacity: 0.6;
+    position: relative;
+    top: 10px;
+  }
+
   body {
-      background-image: linear-gradient(to top right, hwb(0 54% 16% / 0.831), hwb(25 81% 3%));
-      top: 10px;
-      position: relative;
+      background: linear-gradient(to top right, hwb(0 54% 16% / 0.574), hwb(25 81% 3% / 0.353));
+      background-attachment: fixed;
   }
 </style>
-  
 
 <style>
   .green_guy {
@@ -47,7 +56,7 @@
 
 
 <style>
-  a:link, a:visited {
+  a.class1:link, a.class1:visited {
     background-color: grey;
     color: white;
     padding: 8px 15px;
@@ -56,13 +65,17 @@
     display: inline-block;
   }
   
-  a:hover, a:active {
+  a.class1:hover, a.class1:active {
     background-color: red;
   }
   </style>
 
 
+
+
 <head> 
+  
+  
   <div style="text-align: center;">
     <title>The ULTIMATE K-Drama Watchlist</title>
     <h1>The ULTIMATE K-Drama Watchlist</h1>
@@ -70,24 +83,43 @@
     <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzkxYmE4YzhlNjk1ZjMwZGI0NTEzNTgxYmQxNTU2OWJmZDE3ZjcxZiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/QigPYGwlgy4l6o4476/giphy.gif" alt="shocked girl" class="surprised_girl">
     <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2FjODBmNjgxYzkzMTVhMTY1Njk4MmY4YmU3Yjg5ZTE3YTMxNTFjYyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/H4Qm1NYWEK7xNtJirl/giphy.gif" alt="Description of your image" class="green_guy">
   </div>
+
+
+
 <style>
   
-    
   h1{
-      font-size: 2rem;
+      font-size: 3rem;
       font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-      height: 8vh;
-      line-height: 8vh;
+      height: 11vh;
+      width: 100%;
+      line-height: 11vh;
+      margin-top: auto;
+      padding-top: none;
       font-weight: 100;
       color: #f8dbbd;
-
       background-color: #cd614e8e;
       text-shadow: 3px 3px 0 #eb452b,
       5px 5px 0 #efa032,
       6px 6px 0 #46b59b,
       8px 8px 0 #c11a2b;
+    }
+
+    #dramak {
+      position: relative;
       
-     
+    }
+    #dramak canvas{
+      position: absolute;
+      z-index: -1;
+    }
+
+    canvas {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+  
     }
     
     
@@ -120,11 +152,15 @@
     }
 </style>
 
+
+
 </head>
 
 
-<body>
 
+
+<body>
+  <p></p>
   <div style="text-align: center;">
   <form action="home" method="get">
     <span>Name:</span>
@@ -151,17 +187,20 @@
   </form>
   </div>
 
+
   <div style="text-align: center;">
   <form action="home" method="get">
     <h3>&#128293; Feeling Spicy? &#128293; Need a Dab UP?! &#128293; </h1>
-    <a href="/home?name={{spicy}}">YEE</a>
+    <a id ="yee" href="/home?name={{spicy}}#spicy" class="class1">YEE</a>
+   
   </form>
 </div>
+
+
 
   
   {% if result_count > 0 %}
    <div style="text-align: center;"><h1>{{result_count}} results</h1></div>
-              
 
   <center>
     <marquee behavior="alternate" direction="left">          
@@ -172,17 +211,90 @@
 
   <form>
     {% if not summary %}
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Year</th>
-        <th>Cast</th>
-        <th>Genre</th>
-        <th>Eps.</th>
-        <th>Dur.</th>
-        <th>Rating</th>
-        <th>Network</th>
-      </tr>
+    <table>     
+    <tr>
+      <div class="th">
+      <th>
+          <a href="/home?name={{params['name']}}&year={{params['year']}}&casts={{params['casts']}}&genre={{params['genre']}}&episode={{params['episode']}}&duration={{params['duration']}}&content={{params['content’]}}&network={{params[‘network']}}&sort_by=name&sort_dir={{get_sort_dir('name')}}">Name</a>
+          {% if params['sort_by'] == 'name' %}
+          {% if params['sort_dir'] == 'asc' %}
+          <span>&#8593;</span>
+          {% else %}
+          <span>&#8595;</span>
+          {% endif %}
+          {% endif %}
+      </th>
+      <th>
+          <a href="/home?name={{params['name']}}&year={{params['year']}}&casts={{params['casts']}}&genre={{params['genre']}}&episode={{params['episode']}}&duration={{params['duration']}}&content={{params['content’]}}&network={{params[‘network']}}&sort_by=year&sort_dir={{get_sort_dir('year')}}">Year</a>
+          {% if params['sort_by'] == 'year' %}
+          {% if params['sort_dir'] == 'asc' %}
+          <span>&#8593;</span>
+          {% else %}
+          <span>&#8595;</span>
+          {% endif %}
+          {% endif %}
+      </th>
+      <th>
+          <a href="/home?name={{params['name']}}&year={{params['year']}}&casts={{params['casts']}}&genre={{params['genre']}}&episode={{params['episode']}}&duration={{params['duration']}}&content={{params['content’]}}&network={{params[‘network']}}&sort_by=casts&sort_dir={{get_sort_dir('casts')}}">Cast</a>
+          {% if params['sort_by'] == 'casts' %}
+          {% if params['sort_dir'] == 'asc' %}
+          <span>&#8593;</span>
+          {% else %}
+          <span>&#8595;</span>
+          {% endif %}
+          {% endif %}
+      </th>
+      <th>
+          <a href="/home?name={{params['name']}}&year={{params['year']}}&casts={{params['casts']}}&genre={{params['genre']}}&episode={{params['episode']}}&duration={{params['duration']}}&content={{params['content’]}}&network={{params[‘network']}}&sort_by=genre&sort_dir={{get_sort_dir('genre')}}">Genre</a>
+          {% if params['sort_by'] == 'genre' %}
+          {% if params['sort_dir'] == 'asc' %}
+          <span>&#8593;</span>
+          {% else %}
+          <span>&#8595;</span>
+          {% endif %}
+          {% endif %}
+      </th>
+      <th>
+          <a href="/home?name={{params['name']}}&year={{params['year']}}&casts={{params['casts']}}&genre={{params['genre']}}&episode={{params['episode']}}&duration={{params['duration']}}&content={{params['content’]}}&network={{params[‘network']}}&sort_by=episode&sort_dir={{get_sort_dir('episode')}}">Eps.</a>
+          {% if params['sort_by'] == 'episode' %}
+          {% if params['sort_dir'] == 'asc' %}
+          <span>&#8593;</span>
+          {% else %}
+          <span>&#8595;</span>
+          {% endif %}
+          {% endif %}
+      </th>
+      <th>
+        <a href="/home?name={{params['name']}}&year={{params['year']}}&casts={{params['casts']}}&genre={{params['genre']}}&episode={{params['episode']}}&duration={{params['duration']}}&content={{params['content’]}}&network={{params[‘network']}}&sort_by=duration&sort_dir={{get_sort_dir('duration')}}">Dur.</a>
+        {% if params['sort_by'] == 'duration' %}
+        {% if params['sort_dir'] == 'asc' %}
+        <span>&#8593;</span>
+        {% else %}
+        <span>&#8595;</span>
+        {% endif %}
+        {% endif %}
+    </th>
+    <th>
+      <a href="/home?name={{params['name']}}&year={{params['year']}}&casts={{params['casts']}}&genre={{params['genre']}}&episode={{params['episode']}}&duration={{params['duration']}}&content={{params['content’]}}&network={{params[‘network']}}&sort_by=content&sort_dir={{get_sort_dir('content')}}">Rating</a>
+      {% if params['sort_by'] == 'content' %}
+      {% if params['sort_dir'] == 'asc' %}
+     <span>&#8593;</span>
+      {% else %}
+      <span>&#8595;</span>
+      {% endif %}
+      {% endif %}
+  </th>
+  <th>
+    <a href="/home?name={{params['name']}}&year={{params['year']}}&casts={{params['casts']}}&genre={{params['genre']}}&episode={{params['episode']}}&duration={{params['duration']}}&content={{params['content’]}}&network={{params[‘network']}}&sort_by=network&sort_dir={{get_sort_dir('network')}}">Network</a>
+    {% if params['sort_by'] == 'network' %}
+    {% if params['sort_dir'] == 'asc' %}
+    <span>&#8593;</span>
+    {% else %}
+    <span>&#8595;</span>
+    {% endif %}
+    {% endif %}
+</th>
+  </tr>
         {% for drama in kdrama %}
             <tr>
                 <td>{{drama.name}}</td>
@@ -197,6 +309,7 @@
         {% endfor %}
     </table>
     {% endif %}
+  </div> 
   </form>
   
   <div style="text-align: center;">
@@ -204,7 +317,7 @@
       <span>Looking for a specific synopsis</span>
       <input type="text" name="name" value="{{params['name']}}">
       <button type="submit">LOOOOK it UP!!!</button>
-    </form>
+  </form>
   
     <form action="home" method="get" style="display: inline;">
       <button type="submit">Home</button>
@@ -253,3 +366,101 @@
       <button type="submit">About Us</button>
     </form>
   </div>
+</div>
+
+
+<div id="spicy"></div>
+  <script>
+  let W = window.innerWidth;
+  let H = window.innerHeight;
+  const canvas = document.getElementById("canvas");
+  const context = canvas.getContext("2d");
+  const maxConfettis = 150;
+  const particles = [];
+  
+  const possibleColors = [
+    "DodgerBlue",
+    "OliveDrab",
+    "Gold",
+    "Pink",
+    "SlateBlue",
+    "LightBlue",
+    "Gold",
+    "Violet",
+    "PaleGreen",
+    "SteelBlue",
+    "SandyBrown",
+    "Chocolate",
+    "Crimson"
+  ];
+  
+  function randomFromTo(from, to) {
+    return Math.floor(Math.random() * (to - from + 1) + from);
+  }
+  
+  function confettiParticle() {
+    this.x = Math.random() * W; // x
+    this.y = Math.random() * H - H; // y
+    this.r = randomFromTo(11, 33); // radius
+    this.d = Math.random() * maxConfettis + 11;
+    this.color =
+      possibleColors[Math.floor(Math.random() * possibleColors.length)];
+    this.tilt = Math.floor(Math.random() * 33) - 11;
+    this.tiltAngleIncremental = Math.random() * 0.07 + 0.05;
+    this.tiltAngle = 0;
+  
+    this.draw = function() {
+      context.beginPath();
+      context.lineWidth = this.r / 2;
+      context.strokeStyle = this.color;
+      context.moveTo(this.x + this.tilt + this.r / 3, this.y);
+      context.lineTo(this.x + this.tilt, this.y + this.tilt + this.r / 5);
+      return context.stroke();
+    };
+  }
+
+  function Draw() {
+    const results = [];
+    requestAnimationFrame(Draw);
+    context.clearRect(0, 0, W, window.innerHeight);
+    for (var i = 0; i < maxConfettis; i++) {
+      results.push(particles[i].draw());
+    }
+    let particle = {};
+    let remainingFlakes = 0;
+    for (var i = 0; i < maxConfettis; i++) {
+      particle = particles[i];
+      particle.tiltAngle += particle.tiltAngleIncremental;
+      particle.y += (Math.cos(particle.d) + 3 + particle.r / 2) / 2;
+      particle.tilt = Math.sin(particle.tiltAngle - i / 3) * 15;
+      if (particle.y <= H) remainingFlakes++;
+    }
+    return results;
+  }
+  window.addEventListener(
+    "resize",
+    function() {
+      W = window.innerWidth;
+      H = window.innerHeight;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    },
+    false
+  );
+  
+  for (var i = 0; i < maxConfettis; i++) {
+    particles.push(new confettiParticle());
+  }
+
+  canvas.width = W;
+  canvas.height = H;
+  
+  if (window.location.hash === '#spicy') {
+    Draw();
+  }
+ 
+ </script>
+
+ 
+
+</html>

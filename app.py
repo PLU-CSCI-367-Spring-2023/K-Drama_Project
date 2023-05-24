@@ -21,8 +21,6 @@ def welcome():
     return render_template("welcome.html")
 
 
-
-
 #list of all names in the dataset. I know there is easier way using sql, but I had problems with RealDictRow
 list_of_names = ["Move to Heaven", "Hospital Playlist", "Flower of Evil", "Hospital Playlist 2", "My Mister", "Prison Playbook",
  "Reply 1988", "It's Okay to Not Be Okay", "Mr. Queen", "Mother", "Signal", "Navillera", "Happiness", "Vincenzo",
@@ -54,7 +52,6 @@ def render_sets():
     network = request.args.get("network", "")
     sort_by = request.args.get("sort_by", "name")
     sort_dir = request.args.get("sort_dir", "asc")
-    page = request.args.get("page", 1, type=int)
     limit = request.args.get("limit", 100, type=int)
 
     #optional query params
@@ -86,10 +83,8 @@ def render_sets():
         
         "sort_by": sort_by,
         "sort_dir" : sort_dir,
-        "page" : page,
         "limit" : limit
     }
-
  
         
     #     #listing all set_names and theme_names limit 100
