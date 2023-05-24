@@ -72,14 +72,18 @@ def render_sets():
 
     params = {
         "name": f"%{name}%",
-        "year": int(year) if year else None,
+        "year": int(year) if year and year.isdigit() else 0 
+        if year and not year.isdigit() else None,
         "casts": f"%{casts}%",
         "genre": f"%{genre}%",
-        "rating": float(rating) if rating else None,
-        "episode": int(episode) if episode else None,
-        "duration": int(duration) if duration else None,
-        "content": float(rating) if rating else None,
+        "rating": float(rating) if rating and rating.replace('.', '').isdigit() else 0
+        if rating and not rating.isdigit() else None,
+        "episode": int(episode) if episode and episode.isdigit() else 0
+        if episode and not episode.isdigit() else None,
+        "duration": int(duration) if duration and duration.isdigit() else 0
+        if duration and not duration.isdigit() else None,
         "network": f"%{network}%",
+        
         "sort_by": sort_by,
         "sort_dir" : sort_dir,
         "page" : page,
